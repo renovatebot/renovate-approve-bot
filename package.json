@@ -1,0 +1,26 @@
+{
+  "name": "renovate-approve-bot",
+  "private": true,
+  "version": "0.1.0",
+  "description":
+    "A GitHub App that serves only to submit approving Pull Request Reviews for PRs from Renovate Bot",
+  "author": "Rhys Arkins <rhys@arkins.net>",
+  "license": "ISC",
+  "repository": "https://github.com/renovateapp/renovate-approve-bot.git",
+  "scripts": {
+    "start": "probot run ./index.js"
+  },
+  "dependencies": {
+    "probot": "3.0.0"
+  },
+  "devDependencies": {
+    "localtunnel": "1.8.2",
+    "standard": "10.0.3"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "standard": {
+    "env": ["jest"]
+  }
+}
