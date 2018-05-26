@@ -14,7 +14,7 @@
     "probot": "3.0.0"
   },
   "devDependencies": {
-    "localtunnel": "1.8.2",
+    "localtunnel": "1.9.0",
     "standard": "10.0.3"
   },
   "engines": {
