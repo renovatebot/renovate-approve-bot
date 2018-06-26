@@ -11,7 +11,7 @@
     "start": "probot run ./index.js"
   },
   "dependencies": {
-    "probot": "3.0.0"
+    "probot": "6.2.1"
   },
   "devDependencies": {
     "localtunnel": "1.8.2",
