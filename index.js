@@ -1,4 +1,5 @@
 module.exports = robot => {
+  robot.log('App is loaded');
   robot.on('pull_request.opened', async context => {
     if (
       context.payload.sender.login === 'renovate[bot]' &&
