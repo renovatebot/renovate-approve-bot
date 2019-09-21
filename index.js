@@ -2,7 +2,7 @@ const APPROVE = 'APPROVE';
 const MANUAL_MERGE_MESSAGE = 'merge this manually';
 const RENOVATE_BOT = 'renovate[bot]';
 const RENOVATE_APPROVE_BOT = 'renovate-approve[bot]';
-ds
+
 module.exports = robot => {
   robot.log('App is loaded');
   robot.on('pull_request.opened', async context => {
