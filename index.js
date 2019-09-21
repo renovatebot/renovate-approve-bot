@@ -16,7 +16,7 @@ module.exports = robot => {
       return context.github.pullRequests.createReview(params);
     }
   });
-  app.on('pull_request_review.dismissed', async context => {
+  robot.on('pull_request_review.dismissed', async context => {
     if (
         context.payload.sender.login === RENOVATE_BOT &&
         !context.payload.body.pull_request.body.includes(MANUAL_MERGE_MESSAGE) &&
