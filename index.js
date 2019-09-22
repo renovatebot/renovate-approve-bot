@@ -20,9 +20,7 @@ module.exports = app => {
 
   function isAutomerging(context) {
     try {
-      return !context.payload.body.pull_request.body.includes(
-        MANUAL_MERGE_MESSAGE
-      );
+      return !context.payload.pull_request.body.includes(MANUAL_MERGE_MESSAGE);
     } catch (err) {
       app.log(err);
       return false;
