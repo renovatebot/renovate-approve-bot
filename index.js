@@ -13,6 +13,7 @@ module.exports = app => {
     try {
       return context.payload.sender.login === RENOVATE_BOT;
     } catch (err) {
+      app.log(context.payload);
       app.log(err);
       return false;
     }
@@ -22,6 +23,7 @@ module.exports = app => {
     try {
       return !context.payload.pull_request.body.includes(MANUAL_MERGE_MESSAGE);
     } catch (err) {
+      app.log(context.payload);
       app.log(err);
       return false;
     }
@@ -38,15 +40,21 @@ module.exports = app => {
     try {
       return context.payload.pull_request.user.login === RENOVATE_BOT;
     } catch (err) {
+      app.log(context.payload);
       app.log(err);
       return false;
     }
   }
   function approvePr(context) {
-    const params = context.repo();
-    params.number = context.payload.number;
-    params.event = APPROVE;
-    return context.github.pullRequests.createReview(params);
+    try {
+      const params = context.repo();
+      params.number = context.payload.number;
+      params.event = APPROVE;
+      return context.github.pullRequests.createReview(params);
+    } catch (err) {
+      app.log(err);
+      app.log(context.payload);
+    }
   }
   app.on("pull_request.opened", async context => {
     app.log("Received PR open event");
