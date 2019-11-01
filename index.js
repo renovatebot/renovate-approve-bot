@@ -3,10 +3,6 @@ const MANUAL_MERGE_MESSAGE = "merge this manually";
 const RENOVATE_BOT = "renovate[bot]";
 const RENOVATE_APPROVE_BOT = "renovate-approve[bot]";
 
-function isRenovateApproved(context) {
-  return context && context.payload && context.payload.review;
-}
-
 module.exports = app => {
   app.log("App is loaded");
   function isRenovate(context) {
