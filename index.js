@@ -1,7 +1,7 @@
 const APPROVE = "APPROVE";
 const MANUAL_MERGE_MESSAGE = "merge this manually";
-const RENOVATE_BOT = "renovate[bot]";
-const RENOVATE_APPROVE_BOT = "renovate-approve[bot]";
+const RENOVATE_BOT = process.env.RENOVATE_BOT_USER || "renovate[bot]";
+const RENOVATE_APPROVE_BOT = process.env.RENOVATE_APPROVE_BOT_USER || "renovate-approve[bot]";
 
 module.exports = app => {
   app.log("App is loaded");
