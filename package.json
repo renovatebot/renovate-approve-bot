@@ -13,6 +13,6 @@
     "probot": "7.5.3"
   },
   "engines": {
-    "node": "8.x"
+    "node": "12.x"
   }
 }
