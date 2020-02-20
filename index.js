@@ -44,7 +44,7 @@ module.exports = app => {
   function approvePr(context) {
     try {
       const params = context.issue({ event: APPROVE });
-      return context.github.pullRequests.createReview(params);
+      return context.github.pulls.createReview(params);
     } catch (err) {
       app.log(err);
       app.log(context.payload);
