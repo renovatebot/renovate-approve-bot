@@ -1,4 +1,4 @@
-FROM node:13.11.0-alpine3.11
+FROM node:13.14.0-alpine3.11
 
 LABEL maintainer="Rhys Arkins <rhys@arkins.net>"
 
