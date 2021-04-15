@@ -1,4 +1,4 @@
-FROM amd64/node:14.16.0-alpine@sha256:56910fc07d3c20272d3958ef088898ed87df463bb5e9c96e4cb34b63ef2a15a8
+FROM amd64/node:14.16.1-alpine@sha256:03b02e5b45b5e9c59dd1dea146f05a64599465a21caf81494ca8f3513cf3a090
 
 LABEL maintainer="Rhys Arkins <rhys@arkins.net>"
 
