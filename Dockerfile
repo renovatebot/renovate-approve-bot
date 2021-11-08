@@ -12,7 +12,7 @@ RUN addgroup -g ${USER_GID} renovate \
     && adduser -u ${USER_UID} -G renovate -s /bin/sh -D renovate \
     && mkdir -p ${APP_DIR} \
     && chown -R ${USER_UID}:${USER_GID} ${APP_DIR} \
-    && apk add --no-cache python \
+    && apk add --no-cache python3 \
     && apk add --no-cache make 
 
 USER renovate
