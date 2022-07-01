@@ -1,13 +1,14 @@
 const APPROVE = "APPROVE";
 const AUTOMERGE_MESSAGE = "Automerge: enabled";
 const RENOVATE_BOT = process.env.RENOVATE_BOT_USER || "renovate[bot]";
+const MEND_BOT = "mend-for-github-com[bot]";
 const RENOVATE_APPROVE_BOT = process.env.RENOVATE_APPROVE_BOT_USER || "renovate-approve[bot]";
 
 module.exports = app => {
   app.log("App is loaded");
-  function isRenovate(context) {
+  function isValidBot(context) {
     try {
-      return context.payload.sender.login === RENOVATE_BOT;
+      return context.payload.sender.login === RENOVATE_BOT || context.payload.sender.login === MEND_BOT;
     } catch (err) {
       context.log(context.payload);
       context.log(err);
@@ -52,7 +53,7 @@ module.exports = app => {
   }
   app.on("pull_request.opened", async context => {
     context.log("Received PR open event");
-    if (isRenovate(context) && isAutomerging(context)) {
+    if (isValidBot(context) && isAutomerging(context)) {
       context.log("Approving new PR");
       return approvePr(context);
     }
@@ -61,7 +62,7 @@ module.exports = app => {
     context.log("Received PR review dismiss event");
     context.log(context.payload);
     if (
-      isRenovate(context) &&
+      isValidBot(context) &&
       isAutomerging(context) &&
       isRenovateApprover(context) &&
       isRenovateUser(context)
