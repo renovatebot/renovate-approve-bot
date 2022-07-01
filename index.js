@@ -1,5 +1,5 @@
 const APPROVE = "APPROVE";
-const MANUAL_MERGE_MESSAGE = "merge this manually";
+const AUTOMERGE_MESSAGE = "Automerge: enabled";
 const RENOVATE_BOT = process.env.RENOVATE_BOT_USER || "renovate[bot]";
 const RENOVATE_APPROVE_BOT = process.env.RENOVATE_APPROVE_BOT_USER || "renovate-approve[bot]";
 
@@ -17,7 +17,7 @@ module.exports = app => {
 
   function isAutomerging(context) {
     try {
-      return !context.payload.pull_request.body.includes(MANUAL_MERGE_MESSAGE);
+      return context.payload.pull_request.body.includes(AUTOMERGE_MESSAGE);
     } catch (err) {
       context.log(context.payload);
       context.log(err);
