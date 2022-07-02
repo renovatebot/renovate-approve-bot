@@ -1,5 +1,5 @@
 const APPROVE = "APPROVE";
-const AUTOMERGE_MESSAGE = "Automerge: enabled";
+const AUTOMERGE_MESSAGE = "**Automerge**: Enabled";
 const RENOVATE_BOT = process.env.RENOVATE_BOT_USER || "renovate[bot]";
 const MEND_BOT = "mend-for-github-com[bot]";
 const RENOVATE_APPROVE_BOT = process.env.RENOVATE_APPROVE_BOT_USER || "renovate-approve[bot]";
