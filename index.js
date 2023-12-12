@@ -4,7 +4,7 @@ const RENOVATE_BOT = process.env.RENOVATE_BOT_USER || "renovate[bot]";
 const MEND_BOT = "mend-for-github-com[bot]";
 const RENOVATE_APPROVE_BOT = process.env.RENOVATE_APPROVE_BOT_USER || "renovate-approve[bot]";
 
-module.exports = app => {
+module.exports = (app) => {
   app.log("App is loaded");
   function isValidBot(context) {
     try {
@@ -44,8 +44,8 @@ module.exports = app => {
   }
   function approvePr(context) {
     try {
-      const params = context.issue({ event: APPROVE });
-      return context.github.pulls.createReview(params);
+      const params = context.pullRequest({ event: APPROVE });
+      return context.octokit.pulls.createReview(params);
     } catch (err) {
       context.log(err);
       context.log(context.payload);
