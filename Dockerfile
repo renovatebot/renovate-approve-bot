@@ -1,4 +1,4 @@
-FROM node:20-alpine@sha256:a1d39fe127e43881c6770abf2f0843c955607fb56eb9b45bf6f103c992c5442a
+FROM node:20-alpine@sha256:a4041de87d5523532fa7081efda171fb0ef2046dec04bd9f0cf28d790c76e4fa
 
 LABEL maintainer="Rhys Arkins <rhys@arkins.net>"
 
