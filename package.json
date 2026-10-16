@@ -10,7 +10,7 @@
     "start": "probot run ./index.js"
   },
   "dependencies": {
-    "probot": "12.4.0"
+    "probot": "14.3.2"
   },
   "engines": {
     "node": "20.x || ^22.11.0 || >=24.10.0"
